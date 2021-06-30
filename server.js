@@ -14,9 +14,9 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000; //We have chosen port 5000 to run our server code in local
 
-app.get('/', (req, res) => {
-	res.send('Running');
-});
+// app.get('/', (req, res) => {
+// 	res.send('Running');
+// });
 
 io.on("connection", (socket) => {
 
