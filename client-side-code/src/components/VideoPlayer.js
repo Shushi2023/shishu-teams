@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const VideoPlayer = () => {
   const { name, callAccepted, myVideo, userVideo, callEnded, stream, call, shareScreen } = useContext(SocketContext);
   const classes = useStyles();
-  const [mute, setMute] = useState(false);
+  const [mute, setMute] = useState(true);
 
   
   
