@@ -1,0 +1,41 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1.5fr 0.5fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "UserVideo"
+      "Secondary-Video";
+  }
+  
+  .container::before{
+      content: none;
+  }
+  .container::after{
+      content: none;
+  }
+  .Secondary-Video {
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". MyVideo";
+    grid-area: Secondary-Video;
+  }
+  
+  .MyVideo { 
+    grid-area: MyVideo;
+    border : 2px solid black;
+   }
+  
+  .UserVideo { 
+    grid-area: UserVideo;
+    border: 2px solid black;
+   }
+  
