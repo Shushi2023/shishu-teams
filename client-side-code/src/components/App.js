@@ -21,9 +21,9 @@ const App = () => {
             <Route exact path = "/signup" component = {Signup} />
             <Route exact path = "/login" component = {Login} />
             <Route exact path = "/forgotPassword" component = {ForgotPassword} />
-            <Route exact path = "/videoCall" component = {VideoCall} />
-            <Route exact path = "/draw" component = {Draw} />
-            <Route exact path = "/chat" component = {Chatting} />
+            <PrivateRoute exact path = "/videoCall" component = {VideoCall} />
+            <PrivateRoute exact path = "/draw" component = {Draw} />
+            <PrivateRoute exact path = "/chat" component = {Chatting} />
           </Switch>
       </AuthProvider>
     </BrowserRouter>
