@@ -73,11 +73,6 @@ const Sidebar = ({ children }) => {
         </form>
         {children}
       </Paper>}
-      {/* {callEnded && (
-        <Button variant="contained" color="primary" onClick={() => window.location.reload()}>
-          Make Another Call
-      </Button>
-      )} */}
     </Container>
   );
 };

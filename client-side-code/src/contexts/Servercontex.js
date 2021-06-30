@@ -84,10 +84,10 @@ const ContextProvider = ({ children }) => {
     navigator.mediaDevices.getDisplayMedia({cursor:true})
     .then((screenStream) => {
       connectionRef.current.replaceTrack(stream.getVideoTracks()[0],screenStream.getVideoTracks()[0],stream)
-      userVideo.current.srcObject=screenStream
+      myVideo.current.srcObject=screenStream
       screenStream.getTracks()[0].onended = () =>{
       connectionRef.current.replaceTrack(screenStream.getVideoTracks()[0],stream.getVideoTracks()[0],stream)
-      userVideo.current.srcObject=stream
+      myVideo.current.srcObject=stream
       }
     })
   }
