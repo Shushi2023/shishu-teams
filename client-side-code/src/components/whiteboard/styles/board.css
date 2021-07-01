@@ -22,8 +22,9 @@
     width: 48px;
   }
   
-  .color.black { background-color: black; }
-  .color.red { background-color: red; }
-  .color.green { background-color: green; }
-  .color.blue { background-color: blue; }
-  .color.yellow { background-color: yellow; }
+  .color.black { background-color: black; border: 1px solid white }
+  .color.red { background-color: red; border: 1px solid white}
+  .color.green { background-color: green; border: 1px solid white}
+  .color.blue { background-color: blue; border: 1px solid white}
+  .color.yellow { background-color: yellow; border: 1px solid white}
+  .color.grey { background-color: grey; border: 1px solid white}
