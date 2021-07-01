@@ -1,36 +1,72 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/Authcontex";
-import {Container} from 'react-bootstrap';
-import {Link, useHistory} from 'react-router-dom';
-import { Navigation } from './navigation'
+import { Container } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import { Navigation } from "./navigation";
 
-const  ForgotPassword = () => {
-    const emailRef = useRef();
-    const {resetPassword} = useAuth();
-    const [error, setError] = useState();
-    const [message, setMessage] = useState();
-    const [loading, setLoading] = useState(false);
+const ForgotPassword = () => {
+  const emailRef = useRef();
+  const { resetPassword } = useAuth();
+  const [error, setError] = useState();
+  const [message, setMessage] = useState();
+  const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try{
-            setError('');
-            setMessage('');
-            setLoading(true);
-            await resetPassword(emailRef.current.value);
-            setMessage('Check your email for further instructions');
-        }catch(err){
-            setError("Failed to Sign In");
-        }
-
-        setLoading(false);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setError("");
+      setMessage("");
+      setLoading(true);
+      await resetPassword(emailRef.current.value);
+      setMessage("Check your email for further instructions");
+    } catch (err) {
+      setError("Failed to reset password");
     }
 
-    return(
-    <>  
-        <Navigation />
-        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+    setLoading(false);
+  };
+
+  return (
+    <>
+      <Navigation />
+      <div className="loginContainer">
+        <form class="login" style={{ fontSize: "15px" }}>
+          <h1>Password Reset</h1>
+          {error && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Alert style={{ opacity: "100%" }} variant="danger">
+                {error}
+              </Alert>
+            </div>
+          )}
+          {message && (
+            <Alert style={{ opacity: "100%" }} variant="success">
+              {message}
+            </Alert>
+          )}
+          <span class="form-input">
+            <input type="text" placeholder="Email" required ref={emailRef} />
+          </span>
+          <button class="form-button" onClick={handleSubmit}>
+            Reset Password
+          </button>
+          <div className="w-100 text-center mt-2" style={{ color: "white" }}>
+            <Link to="/login">Log In</Link>
+          </div>
+          <div className="w-100 text-center mt-2" style={{ color: "white" }}>
+            Need an account? <Link to="/signup">Sign up</Link>
+          </div>
+        </form>
+      </div>
+
+      {/* <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
             <div className="w-100" style={{ maxWidth: "300px"}}>
                 <Card>
                     <Card.Body>
@@ -58,9 +94,9 @@ const  ForgotPassword = () => {
                     Need an account? <Link to = "/signup">Sign up</Link>
                 </div>
             </div>
-        </Container>
+        </Container> */}
     </>
-    )
-}
+  );
+};
 
 export default ForgotPassword;
