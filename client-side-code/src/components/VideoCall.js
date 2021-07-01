@@ -41,17 +41,19 @@ const VideoCall = () => {
   
   return (
     <>
+    {!startVC && (<>
     <Navigation />
-    {!startVC && (<div style = {{minHeight : "100vh", display : "flex", justifyContent : "center", alignItems : "center"}}>
+    <div style = {{minHeight : "100vh", display : "flex", justifyContent : "center", alignItems : "center"}}>
       <Button style = {{fontSize : "15px"}} variant="contained" color="primary" onClick={() => setStartVC(true)}>
         Start Video Call
       </Button>
-    </div>)}
+    </div>
+    </>)}
     {startVC && (<ContextProvider>
-      <div className={classes.wrapper}>
-        <AppBar className={classes.appBar} position="static" color="inherit">
+      <div>
+        {/* <AppBar className={classes.appBar} position="static" color="inherit">
           <Typography variant="h2" align="center">Video Chat</Typography>
-        </AppBar>
+        </AppBar> */}
         <VideoPlayer />
         <Sidebar>
           <Notifications />
