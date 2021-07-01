@@ -14,6 +14,7 @@ import {
   MicOff,
   ScreenShare,
 } from "@material-ui/icons";
+import SideChat from "./embeddedChat/SideChat";
 
 const VideoPlayer = () => {
   const {
@@ -44,6 +45,8 @@ const VideoPlayer = () => {
       border: "2px solid #000",
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      display: "flex",
+      justifyContent: "space-between",
     },
   }));
 
@@ -103,21 +106,30 @@ const VideoPlayer = () => {
               </div>
             )}
             {!call.isReceivingCall && !callAccepted && (
-              <CopyToClipboard text={me}>
-                <Button
-                  style={{
-                    marginRight: "5px",
-                    position: "absolute",
-                    bottom: "50%",
-                    right: "50%",
+              <>
+                <TextField
+                  style={{ position: "absolute", bottom: "54%", right: "53%" }}
+                  value={me}
+                  inputProps={{
+                    style: { fontSize: 12, textDecoration: "none" },
                   }}
-                  variant="contained"
-                  color="primary"
-                  startIcon={<Assignment fontSize="large" />}
-                >
-                  Copy Your ID To Clipboard
-                </Button>
-              </CopyToClipboard>
+                />
+                <CopyToClipboard text={me}>
+                  <Button
+                    style={{
+                      marginRight: "5px",
+                      position: "absolute",
+                      bottom: "50%",
+                      right: "50%",
+                    }}
+                    variant="contained"
+                    color="primary"
+                    startIcon={<Assignment fontSize="large" />}
+                  >
+                    Copy Your ID To Clipboard
+                  </Button>
+                </CopyToClipboard>
+              </>
             )}
             {!call.isReceivingCall && !callAccepted && (
               <Button
@@ -153,7 +165,8 @@ const VideoPlayer = () => {
             >
               <div style={modalStyle} className={classes.paper}>
                 <TextField
-                  label="ID to call"
+                  style={{ fontSize: "25px" }}
+                  label="ID To Call"
                   value={idToCall}
                   onChange={(e) => setIdToCall(e.target.value)}
                 />
@@ -218,6 +231,17 @@ const VideoPlayer = () => {
               muted={mute}
             />
           )}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            right: "0px",
+            width: "25%",
+            height: "100%",
+          }}
+        >
+          {callAccepted && !callEnded && <SideChat />}
         </div>
       </div>
     </>

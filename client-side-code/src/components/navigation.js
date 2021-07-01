@@ -23,8 +23,9 @@ export const Navigation = (props) => {
     <Navbar id='menu' className='d-flex navbar-default navbar-fixed-top' style = {{marginBottom : "0px"}}>
       <div className = 'w-100'>
         <div className='navbar-header'>
-          <a className='d-flex align-items-center justify-content-center navbar-brand page-scroll' href='/'>
-            Shishu Teams
+          <a className='d-flex align-items-center navbar-brand page-scroll' href='/'>
+            
+            <img style = {{position : 'absolute', left : "0px", top : "0px", width : "200px", height: "81px"}} src = "img/logo.jpg" />
           </a>
         </div>
         
