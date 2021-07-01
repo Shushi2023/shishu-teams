@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 import './styles/board.css';
 
 
-const Board = () => {
+const Board = (props) => {
   const canvasRef = useRef(null);
   const colorsRef = useRef(null);
   const socketRef = useRef();
@@ -143,6 +143,7 @@ const Board = () => {
         <div className="color blue" />
         <div className="color yellow" />
       </div>
+      {/* <button onClick = {props.close()} style = {{position : "absolute", right : "0px", top : "0px"}}>Close</button> */}
     </div>
   );
 };

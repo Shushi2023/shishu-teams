@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Modal } from "@material-ui/core";
+import { Button, Modal, Dialog } from "@material-ui/core";
 import { SocketContext } from "../contexts/Servercontex";
 import "./styles.css";
 import { Navigation } from "./navigation";
@@ -13,8 +13,10 @@ import {
   Mic,
   MicOff,
   ScreenShare,
+  Close,
 } from "@material-ui/icons";
 import SideChat from "./embeddedChat/SideChat";
+import Board from "./whiteboard/Board";
 
 const VideoPlayer = () => {
   const {
@@ -36,7 +38,7 @@ const VideoPlayer = () => {
   const [idToCall, setIdToCall] = useState(""); //For getting our call ID
   const [mute, setMute] = useState(true); //For muting and unmuting
   const [open, setOpen] = useState(false); //For opening/closing the modal
-
+  const [openDialog, setOpenDialog] = useState(false); //For opening/closing the Whiteboard
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: "absolute",
@@ -71,6 +73,14 @@ const VideoPlayer = () => {
   const handleClose = () => {
     //For closing the modal
     setOpen(false);
+  };
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
   };
 
   return (
@@ -157,6 +167,7 @@ const VideoPlayer = () => {
                 <PhoneDisabled fontSize="large" />
               </Button>
             )}
+
             <Modal
               open={open}
               onClose={handleClose}
@@ -194,6 +205,7 @@ const VideoPlayer = () => {
                 <Mic fontSize="large" />
               </Button>
             )}
+
             {callAccepted && !callEnded && mute && (
               <Button
                 style={{ borderRadius: "50%", marginRight: "5px" }}
@@ -213,6 +225,38 @@ const VideoPlayer = () => {
               >
                 <ScreenShare fontSize="large" />
               </Button>
+            )}
+            {callAccepted && !callEnded && (
+              <>
+                <Button
+                  style={{ marginRight: "5px" }}
+                  variant="contained"
+                  color="primary"
+                  onClick={handleOpenDialog}
+                >
+                  Let's Draw
+                </Button>
+                <Dialog
+                  fullScreen
+                  open={openDialog}
+                  onClose={handleCloseDialog}
+                >
+                  <Board />
+                  <Button
+                    style={{
+                      marginRight: "5px",
+                      position: "absolute",
+                      right: "0px",
+                      top: "0px",
+                    }}
+                    variant="contained"
+                    color="secondary"
+                    onClick={handleCloseDialog}
+                  >
+                    <Close />
+                  </Button>
+                </Dialog>
+              </>
             )}
           </div>
           {callAccepted && !callEnded && (
