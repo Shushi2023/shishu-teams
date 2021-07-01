@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from "@material-ui/core";
 
 import VideoPlayer from './VideoPlayer';
-import Sidebar from './Sidebar';
-import Notifications from './Notifications';
 import { ContextProvider } from '../contexts/Servercontex';
 import { Navigation } from './navigation';
 
@@ -51,13 +48,7 @@ const VideoCall = () => {
     </>)}
     {startVC && (<ContextProvider>
       <div>
-        {/* <AppBar className={classes.appBar} position="static" color="inherit">
-          <Typography variant="h2" align="center">Video Chat</Typography>
-        </AppBar> */}
         <VideoPlayer />
-        <Sidebar>
-          <Notifications />
-        </Sidebar>
       </div>
     </ContextProvider>)}
     </>

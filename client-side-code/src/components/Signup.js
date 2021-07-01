@@ -34,7 +34,57 @@ const  Signup = () => {
     return(
     <>  
         <Navigation />
-        <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh", fontSize: "1.5em"}}>
+        <div className="loginContainer">
+        <form class="login" style = {{fontSize: "15px"}}>
+          <h1>Sign Up</h1>
+          {error && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Alert
+                style={{ opacity: "100%" }}
+                variant="danger"
+              >
+                {error}
+              </Alert>
+            </div>
+          )}
+          <span class="form-input">
+            <input type="text" placeholder="Username" required ref={nameRef} />
+          </span>
+          <span class="form-input">
+            <input type="text" placeholder="Email" required ref={emailRef} />
+          </span>
+          <span class="form-input">
+            <input
+              type="password"
+              placeholder="Password"
+              required
+              ref={passRef}
+            />
+          </span>
+          <span class="form-input">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              required
+              ref={confPassRef}
+            />
+          </span>
+          <button class="form-button" disabled = {loading} onClick={handleSubmit}>
+            Sign Up
+          </button>
+          
+          <div className="w-100 text-center mt-2" style = {{color : "white"}}>
+          Already have an account? <Link to = "/login">Log In</Link>
+          </div>
+        </form>
+      </div>
+        {/* <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh", fontSize: "1.5em"}}>
             <div className="w-100" style={{ maxWidth: "300px"}}>
                 <Card>
                     <Card.Body>
@@ -80,10 +130,10 @@ const  Signup = () => {
                     </Card.Body>
                 </Card>
                 <div className = "w-100 text-center mt-2">
-                    Already have an account? <Link to = "/login">Log In</Link>
+                    
                 </div>
             </div>
-        </Container>
+        </Container> */}
     </>
     )
 }

@@ -2,7 +2,7 @@ import { Navbar} from "react-bootstrap"
 import { Button } from "@material-ui/core";
 import { useAuth } from "../contexts/Authcontex";
 import { useState } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export const Navigation = (props) => {
   const [error, setError] = useState();
@@ -27,10 +27,7 @@ export const Navigation = (props) => {
             Shishu Teams
           </a>
         </div>
-        {/* <div
-          className='collapse navbar-collapse'
-          id='bs-example-navbar-collapse-1'
-        > */}
+        
           <ul className=' nav navbar-nav navbar-right d-flex justify-content-between'>
 
             <li className = 'd-flex flex-row'>
@@ -46,7 +43,10 @@ export const Navigation = (props) => {
               <a href='/draw' className='page-scroll' style = {{textDecoration : "none"}}>
                 Let's Draw
               </a>
-              <span style = {{width : "400px"}}></span>
+              <a href='/chat' className='page-scroll' style = {{textDecoration : "none"}}>
+                Chat Room
+              </a>
+              {/* <span style = {{width : "400px"}}></span> */}
             </li>
 
             <li>
@@ -69,7 +69,7 @@ export const Navigation = (props) => {
               </span>)}
             </li>
           </ul>
-        {/* </div> */}
+        
       </div>
     </Navbar>
   )
