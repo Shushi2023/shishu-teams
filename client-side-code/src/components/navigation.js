@@ -43,7 +43,10 @@ export const Navigation = (props) => {
               <a href='/draw' className='page-scroll' style = {{textDecoration : "none"}}>
                 Let's Draw
               </a>
-              <span style = {{width : "400px"}}></span>
+              <a href='/chat' className='page-scroll' style = {{textDecoration : "none"}}>
+                Chat Room
+              </a>
+              {/* <span style = {{width : "400px"}}></span> */}
             </li>
 
             <li>
