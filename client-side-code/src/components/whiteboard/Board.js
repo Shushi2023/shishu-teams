@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import io from 'socket.io-client';
-import './styles/board.css';
-
+import React, { useRef, useEffect } from "react";
+import io from "socket.io-client";
+import "./styles/board.css";
 
 const Board = (props) => {
   const canvasRef = useRef(null);
@@ -9,31 +8,30 @@ const Board = (props) => {
   const socketRef = useRef();
 
   useEffect(() => {
-
     // --------------- getContext() method returns a drawing context on the canvas-----
 
     const canvas = canvasRef.current;
     const test = colorsRef.current;
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext("2d");
 
     // ----------------------- Colors --------------------------------------------------
 
-    const colors = document.getElementsByClassName('color');
-    console.log(colors, 'the colors');
+    const colors = document.getElementsByClassName("color");
+    console.log(colors, "the colors");
     console.log(test);
     // set the current color
     const current = {
-      color: 'black',
+      color: "black",
     };
 
     // helper that will update the current color
     const onColorUpdate = (e) => {
-      current.color = e.target.className.split(' ')[1];
+      current.color = e.target.className.split(" ")[1];
     };
 
     // loop through the color elements and add the click event listeners
     for (let i = 0; i < colors.length; i++) {
-      colors[i].addEventListener('click', onColorUpdate, false);
+      colors[i].addEventListener("click", onColorUpdate, false);
     }
     let drawing = false;
 
@@ -48,11 +46,13 @@ const Board = (props) => {
       context.stroke();
       context.closePath();
 
-      if (!emit) { return; }
+      if (!emit) {
+        return;
+      }
       const w = canvas.width;
       const h = canvas.height;
 
-      socketRef.current.emit('drawing', {
+      socketRef.current.emit("drawing", {
         x0: x0 / w,
         y0: y0 / h,
         x1: x1 / w,
@@ -70,26 +70,44 @@ const Board = (props) => {
     };
 
     const onMouseMove = (e) => {
-      if (!drawing) { return; }
-      drawLine(current.x, current.y, e.clientX || (e.touches && e.touches[0].clientX), e.clientY || (e.touches && e.touches[0].clientY), current.color, true);
+      if (!drawing) {
+        return;
+      }
+      drawLine(
+        current.x,
+        current.y,
+        e.clientX || (e.touches && e.touches[0].clientX),
+        e.clientY || (e.touches && e.touches[0].clientY),
+        current.color,
+        true
+      );
       current.x = e.clientX || (e.touches && e.touches[0].clientX);
       current.y = e.clientY || (e.touches && e.touches[0].clientY);
     };
 
     const onMouseUp = (e) => {
-      if (!drawing) { return; }
+      if (!drawing) {
+        return;
+      }
       drawing = false;
-      drawLine(current.x, current.y, e.clientX || (e.touches && e.touches[0].clientX), e.clientY || (e.touches && e.touches[0].clientY), current.color, true);
+      drawLine(
+        current.x,
+        current.y,
+        e.clientX || (e.touches && e.touches[0].clientX),
+        e.clientY || (e.touches && e.touches[0].clientY),
+        current.color,
+        true
+      );
     };
 
     // ----------- limit the number of events per second -----------------------
 
     const throttle = (callback, delay) => {
       let previousCall = new Date().getTime();
-      return function() {
+      return function () {
         const time = new Date().getTime();
 
-        if ((time - previousCall) >= delay) {
+        if (time - previousCall >= delay) {
           previousCall = time;
           callback.apply(null, arguments);
         }
@@ -98,16 +116,16 @@ const Board = (props) => {
 
     // -----------------add event listeners to our canvas ----------------------
 
-    canvas.addEventListener('mousedown', onMouseDown, false);
-    canvas.addEventListener('mouseup', onMouseUp, false);
-    canvas.addEventListener('mouseout', onMouseUp, false);
-    canvas.addEventListener('mousemove', throttle(onMouseMove, 10), false);
+    canvas.addEventListener("mousedown", onMouseDown, false);
+    canvas.addEventListener("mouseup", onMouseUp, false);
+    canvas.addEventListener("mouseout", onMouseUp, false);
+    canvas.addEventListener("mousemove", throttle(onMouseMove, 10), false);
 
     // Touch support for mobile devices
-    canvas.addEventListener('touchstart', onMouseDown, false);
-    canvas.addEventListener('touchend', onMouseUp, false);
-    canvas.addEventListener('touchcancel', onMouseUp, false);
-    canvas.addEventListener('touchmove', throttle(onMouseMove, 10), false);
+    canvas.addEventListener("touchstart", onMouseDown, false);
+    canvas.addEventListener("touchend", onMouseUp, false);
+    canvas.addEventListener("touchcancel", onMouseUp, false);
+    canvas.addEventListener("touchmove", throttle(onMouseMove, 10), false);
 
     // -------------- make the canvas fill its parent component -----------------
 
@@ -116,7 +134,7 @@ const Board = (props) => {
       canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', onResize, false);
+    window.addEventListener("resize", onResize, false);
     onResize();
 
     // ----------------------- socket.io connection ----------------------------
@@ -124,14 +142,20 @@ const Board = (props) => {
       const w = canvas.width;
       const h = canvas.height;
       drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
-    }
+    };
 
-    socketRef.current = io.connect('/');
-    socketRef.current.on('drawing', onDrawingEvent);
+    socketRef.current = io.connect("/");
+    socketRef.current.on("drawing", onDrawingEvent);
   }, []);
 
   // ------------- The Canvas and color elements --------------------------
-
+  const removeAll = () => {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  };
   return (
     <div>
       <canvas ref={canvasRef} className="whiteboard" />
@@ -142,8 +166,14 @@ const Board = (props) => {
         <div className="color green" />
         <div className="color blue" />
         <div className="color yellow" />
+        <div className="color grey" />
       </div>
-      {/* <button onClick = {props.close()} style = {{position : "absolute", right : "0px", top : "0px"}}>Close</button> */}
+      <div style={{ position: "absolute", left: "25%" }} onClick={removeAll}>
+        <i
+          style={{ fontSize: "50px", color: "black" }}
+          className="fa fa-eraser"
+        />
+      </div>
     </div>
   );
 };
