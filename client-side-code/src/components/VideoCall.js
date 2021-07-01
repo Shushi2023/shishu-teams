@@ -5,6 +5,7 @@ import { Button } from "@material-ui/core";
 import VideoPlayer from './VideoPlayer';
 import { ContextProvider } from '../contexts/Servercontex';
 import { Navigation } from './navigation';
+import "./styles.css";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -40,7 +41,7 @@ const VideoCall = () => {
     <>
     {!startVC && (<>
     <Navigation />
-    <div style = {{minHeight : "100vh", display : "flex", justifyContent : "center", alignItems : "center"}}>
+    <div className = "loginContainer">
       <Button style = {{fontSize : "15px"}} variant="contained" color="primary" onClick={() => setStartVC(true)}>
         Start Video Call
       </Button>
