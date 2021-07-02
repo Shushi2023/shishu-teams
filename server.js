@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 const cors = require("cors");
+const chessLogic = require("./chessGameLogic");
 
 const io = require("socket.io")(server, {
   cors: {
@@ -35,6 +36,9 @@ io.on("connection", (socket) => {
   socket.on("message", (payload) => {
     io.emit("message", payload);
   });
+
+  chessLogic.initializeGame(io, socket);
+  
 });
 
 if (process.env.NODE_ENV === "production") {

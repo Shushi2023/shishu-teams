@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
-    "start": "node server.js", 
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client-side-code && npm run build --prefix client-side-code"
   },
   "keywords": [],
@@ -17,7 +17,8 @@
     "express": "^4.17.1",
     "http": "0.0.1-security",
     "socket.io": "^4.1.2",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.10"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
