@@ -81,6 +81,13 @@ export const Navigation = (props) => {
             >
               Chat Room
             </a>
+            <a
+              href="/playChess"
+              className="page-scroll"
+              style={{ textDecoration: "none" }}
+            >
+              Let's Play Chess
+            </a>
           </li>
 
           <li>
