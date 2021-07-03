@@ -1,18 +1,17 @@
+.MyVideo {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  border: 1px solid black;
+}
 
-  .MyVideo { 
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    border : 1px solid black;
-   }
-  
-  .UserVideo { 
-    width: 500px;
-    height: 500px;
-    position: absolute;
-   }
-  
-.loginContainer{
+.UserVideo {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+}
+
+.loginContainer {
   background-image: url("https://images.unsplash.com/photo-1572499465883-9d7dd5a321fa?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8MTcwODI3Nnx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,116 +19,157 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  
 }
 
-.glassMorphism{
-  background: rgba( 58, 5, 255, 0.20 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 11.0px );
-  -webkit-backdrop-filter: blur( 11.0px );
+.glassMorphism {
+  background: rgba(58, 5, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(11px);
   border-radius: 10px;
 }
 
 /* Login Form CSS */
 .login {
-	position: relative;
-	padding: 40px;
-	font-family: 'Roboto', sans-serif;
-  border: 1px solid rgba( 255, 255, 255, 0.18);
+  position: relative;
+  padding: 40px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
 }
 .login::before,
 .login .box1,
 .login .box2 {
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(15px);
-	-webkit-backdrop-filter: blur(15px);
-	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-	border: 2px solid transparent;
-	background-clip: padding-box;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 .login::before {
-	content: '';
-	position: absolute;
-	z-index: -1;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	border-radius: 20px;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 20px;
 }
 .login .box1 {
-	position: absolute;
-	z-index: 1;
-	left: -50px;
-	top: -50px;
-	width: 100px;
-	height: 100px;
-	border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  left: -50px;
+  top: -50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
 }
 .login .box2 {
-	position: absolute;
-	z-index: 1;
-	right: -30px;
-	bottom: -30px;
-	width: 70px;
-	height: 70px;
-	border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  right: -30px;
+  bottom: -30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
 }
 .login h1 {
-	margin: 0 0 20px;
-	font-size: 40px;
-	color: #fff;
-	text-align: center;
+  margin: 0 0 20px;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
 }
 .form-input {
-	display: block;
-	width: 300px;
-	height: 50px;
-	margin-bottom: 20px;
+  display: block;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 20px;
 }
 .form-input input {
-	width: 100%;
-	height: 100%;
-	padding: 10px 20px;
-	font-size: 16px;
-	color: #fff;
-	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	border: 0;
-	border-radius: 10px;
-	box-sizing: border-box;
-	background-color: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-	outline: none;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  outline: none;
 }
 .form-input input::placeholder {
-	color: rgba(255, 255, 255, 0.5);
-	transition: .3s;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s;
 }
 .form-input input:focus::placeholder {
-	opacity: 0;
+  opacity: 0;
 }
 .form-button {
-	display: block;
-	margin: 0 auto;
-	padding: 15px 30px;
-	font-size: 14px;
-	text-transform: uppercase;
-	color: #fff;
-	background-color: rgba(44, 58, 17, 0.8);
-	border: 0;
-	border-radius: 10px;
-	outline: none;
-	cursor: pointer;
-	transition: .3s ease-in-out;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(44, 58, 17, 0.8);
+  border: 0;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 .form-button:hover {
-	background-color: rgba(44, 58, 17, 1);
+  background-color: rgba(44, 58, 17, 1);
 }
 
-a:hover{
-	cursor: pointer;
+a:hover {
+  cursor: pointer;
+}
+
+.bgImg {
+  background-image: url("https://images.unsplash.com/photo-1572499465883-9d7dd5a321fa?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTB8MTcwODI3Nnx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.featureContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 50px 10px;
+  grid-template-areas:
+    "VideoCall YTPlayer Chess"
+    "Chat Stream Calendar"
+    ". . .";
+}
+
+.VideoCall {
+  grid-area: VideoCall;
+}
+
+.YTPlayer {
+  grid-area: YTPlayer;
+}
+
+.Chess {
+  grid-area: Chess;
+}
+
+.Chat {
+  grid-area: Chat;
+}
+
+.Stream {
+  grid-area: Stream;
+}
+
+.Calendar {
+  grid-area: Calendar;
 }

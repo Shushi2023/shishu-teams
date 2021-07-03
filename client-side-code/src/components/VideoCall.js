@@ -28,7 +28,7 @@ const VideoCall = () => {
       )}
       {startVC && (
         <ContextProvider>
-          <div>
+          <div className="bgImg">
             <VideoPlayer />
           </div>
         </ContextProvider>

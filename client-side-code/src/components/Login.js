@@ -8,8 +8,7 @@ import { Navigation } from "./navigation";
 const Login = () => {
   const emailRef = useRef();
   const passRef = useRef();
-  const { logIn, userName, setUserName } = useAuth();
-  // const {setName} = useContext(SocketContext);
+  const { logIn } = useAuth();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -21,8 +20,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await logIn(emailRef.current.value, passRef.current.value);
-      console.log("userName", userName);
-      history.push("/parentVC");
+      history.push("/");
     } catch (err) {
       setError("Failed to Sign In");
     }
@@ -49,14 +47,6 @@ const Login = () => {
               </Alert>
             </div>
           )}
-          <span class="form-input">
-            <input
-              type="text"
-              placeholder="Username"
-              required
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </span>
           <span class="form-input">
             <input type="text" placeholder="Email" required ref={emailRef} />
           </span>
