@@ -104,7 +104,7 @@ const VideoPlayer = () => {
               <div
                 style={{ position: "absolute", bottom: "50%", right: "50%" }}
               >
-                <h1>Someone is calling...</h1>
+                <h1 styles={{ color: "white" }}>Someone is calling...</h1>
                 <Button
                   variant="contained"
                   color="primary"

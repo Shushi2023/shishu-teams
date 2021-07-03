@@ -7,34 +7,36 @@ const ParentVC = () => {
   return (
     <div>
       <Navigation />
-      <Button
-        style={{
-          position: "absolute",
-          right: "70%",
-          top: "50%",
-        }}
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          history.push("/videoCall");
-        }}
-      >
-        One to One Video Call
-      </Button>
-      <Button
-        style={{
-          position: "absolute",
-          right: "20%",
-          top: "50%",
-        }}
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          history.push("/groupVC");
-        }}
-      >
-        Group Video Call
-      </Button>
+      <div className="loginContainer">
+        <Button
+          style={{
+            position: "absolute",
+            right: "70%",
+            top: "60%",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            history.push("/videoCall");
+          }}
+        >
+          One to One Video Call
+        </Button>
+        <Button
+          style={{
+            position: "absolute",
+            right: "20%",
+            top: "60%",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            history.push("/groupVC");
+          }}
+        >
+          Group Video Call
+        </Button>
+      </div>
     </div>
   );
 };

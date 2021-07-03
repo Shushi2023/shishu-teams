@@ -3,7 +3,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 
 import { AuthProvider } from "../contexts/Authcontex";
-
+import "./styles.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import ForgotPassword from "./ForgotPassword";
@@ -21,6 +21,7 @@ import CreateRoom from "./groupVC/CreateRoom";
 import Room from "./groupVC/Room";
 import ParentVC from "./ParentVC";
 import Youtube from "./youtube/Youtube";
+import MyCalendar from "./calendar/MyCalendar";
 
 const App = () => {
   const [didRedirect, setDidRedirect] = React.useState(false);
@@ -52,6 +53,7 @@ const App = () => {
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route exact path="/stream" component={WatchStream} />
             <Route exact path="/youtube" component={Youtube} />
+            <Route exact path="/calendar" component={MyCalendar} />
             <PrivateRoute path="/groupVC" exact component={CreateRoom} />
             <PrivateRoute path="/groupVC/room/:roomID" component={Room} />
             <PrivateRoute exact path="/parentVC" component={ParentVC} />
@@ -59,19 +61,48 @@ const App = () => {
             <PrivateRoute exact path="/draw" component={Draw} />
             <PrivateRoute exact path="/chat" component={Chatting} />
             <Route path="/playChess" exact>
-              <Onboard setUserName={setUserName} />
+              <div
+                className="loginContainer"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Onboard setUserName={setUserName} />
+              </div>
             </Route>
             <Route path="/playChess/game/:gameid" exact>
               {didRedirect ? (
                 <React.Fragment>
-                  <JoinGame userName={userName} isCreator={true} />
-                  <ChessGame myUserName={userName} />
+                  <div
+                    className="loginContainer"
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <JoinGame userName={userName} isCreator={true} />
+                    <ChessGame myUserName={userName} />
+                  </div>
                 </React.Fragment>
               ) : (
-                <JoinRoom />
+                <div className="loginContainer">
+                  <JoinRoom />
+                </div>
               )}
             </Route>
-            <Redirect to="/playChess" />
+            <div
+              className="loginContainer"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Redirect to="/playChess" />
+            </div>
           </Switch>
         </AuthProvider>
       </BrowserRouter>

@@ -1,19 +1,15 @@
+import React from "react";
+import { CalendarComponent } from "@syncfusion/ej2-react-calendars";
+import "./calendar.css";
 import { Button } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../../contexts/Authcontex";
 
-const WatchStream = () => {
+const MyCalendar = () => {
   const history = useHistory();
+
   return (
-    <div>
-      <iframe
-        // src={`https://player.twitch.tv/?channel=shushi3101}&parent=localhost&muted=true`}
-        src={`https://player.twitch.tv/?channel=shushi3101&parent=shishu-teams.herokuapp.com&muted=true`}
-        height="100%"
-        width="100%"
-        allowfullscreen={true}
-      ></iframe>
+    <>
       <Button
         style={{
           marginRight: "5px",
@@ -29,7 +25,19 @@ const WatchStream = () => {
       >
         <Close />
       </Button>
-    </div>
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        className="bgImg"
+      >
+        <CalendarComponent></CalendarComponent>
+      </div>
+    </>
   );
 };
-export default WatchStream;
+
+export default MyCalendar;

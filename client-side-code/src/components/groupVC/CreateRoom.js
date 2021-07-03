@@ -12,19 +12,21 @@ const CreateRoom = (props) => {
   return (
     <div>
       <Navigation />
-      <Button
-        style={{
-          marginRight: "5px",
-          position: "absolute",
-          right: "50%",
-          top: "50%",
-        }}
-        variant="contained"
-        color="secondary"
-        onClick={create}
-      >
-        Create Room
-      </Button>
+      <div class="bgImg">
+        <Button
+          style={{
+            marginRight: "5px",
+            position: "absolute",
+            right: "50%",
+            top: "50%",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={create}
+        >
+          Create Room
+        </Button>
+      </div>
     </div>
   );
 };

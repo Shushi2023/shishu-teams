@@ -36,86 +36,87 @@ const Youtube = () => {
 
   return (
     <>
-      <Button
-        style={{
-          marginRight: "5px",
-          position: "absolute",
-          right: "0px",
-          top: "0px",
-        }}
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          history.push("/");
-          window.location.reload();
-        }}
-      >
-        <Close />
-      </Button>
-      <div className="app">
-        <div style={{ width: "100%" }}>
-          <form
-            style={{
-              marginRight: "600px",
-              marginLeft: "200px",
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-            }}
-            onSubmit={search}
-          >
-            <input
-              style={{ fontSize: "150%", width: "80%", marginBottom: "50px" }}
-              autoFocus
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button
+      <div className="background">
+        <Button
+          style={{
+            marginRight: "5px",
+            position: "absolute",
+            right: "0px",
+            top: "0px",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            history.push("/");
+          }}
+        >
+          <Close />
+        </Button>
+        <div className="app">
+          <div style={{ width: "100%" }}>
+            <form
               style={{
-                border: "2px solid blue",
-                borderRadius: "2px",
-                fontWeight: "bolder",
-                fontSize: "150%",
-                position: "absolute",
-                left: "97%",
+                marginRight: "600px",
+                marginLeft: "200px",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
               }}
+              onSubmit={search}
             >
-              Search YouTube
-            </button>
-          </form>
+              <input
+                style={{ fontSize: "150%", width: "80%", marginBottom: "50px" }}
+                autoFocus
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <button
+                style={{
+                  border: "2px solid blue",
+                  borderRadius: "2px",
+                  fontWeight: "bolder",
+                  fontSize: "150%",
+                  position: "absolute",
+                  left: "97%",
+                }}
+              >
+                Search YouTube
+              </button>
+            </form>
 
-          {list &&
-            (list.length === 0 ? (
-              <p>No results</p>
-            ) : (
-              <ul>
-                {list.map((item) => (
-                  <li className="item" key={item.id}>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "center",
-                        fontSize: "40px",
-                      }}
-                    >
-                      <b>
-                        <a href={item.link}>{item.title}</a>
-                      </b>
-                      <p>{item.description}</p>
-                    </div>
-                    <ReactPlayer url={item.url} controls={true} />
-                    <ul className="meta">
-                      <li>
-                        By: <a href={item.author.ref}>{item.author.name}</a>
-                      </li>
-                      <li>Views: {item.views}</li>
-                      <li>Duration: {item.duration}</li>
-                      <li>Uploaded: {item.uploadedAt}</li>
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-            ))}
+            {list &&
+              (list.length === 0 ? (
+                <p>No results</p>
+              ) : (
+                <ul>
+                  {list.map((item) => (
+                    <li className="item" key={item.id}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          fontSize: "40px",
+                        }}
+                      >
+                        <b>
+                          <a href={item.link}>{item.title}</a>
+                        </b>
+                        <p>{item.description}</p>
+                      </div>
+                      <ReactPlayer url={item.url} controls={true} />
+                      <ul className="meta">
+                        <li>
+                          By: <a href={item.author.ref}>{item.author.name}</a>
+                        </li>
+                        <li>Views: {item.views}</li>
+                        <li>Duration: {item.duration}</li>
+                        <li>Uploaded: {item.uploadedAt}</li>
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+          </div>
         </div>
       </div>
     </>

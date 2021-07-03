@@ -112,28 +112,34 @@ const Room = (props) => {
   }
 
   return (
-    <Container>
-      <StyledVideo muted ref={userVideo} autoPlay playsInline />
-      {peers.map((peer, index) => {
-        return <Video key={index} peer={peer} />;
-      })}
-      <Button
-        style={{
-          marginRight: "5px",
-          position: "absolute",
-          right: "0px",
-          top: "0px",
-        }}
-        variant="contained"
-        color="secondary"
-        onClick={() => {
-          history.push("/");
-          window.location.reload();
-        }}
-      >
-        <Close />
-      </Button>
-    </Container>
+    <div class="bgImg">
+      <h1 style={{ color: "white", maxHeight: "25px" }}>
+        Share the Link In URL to Invite Others to this Room
+      </h1>
+
+      <Container>
+        <StyledVideo muted ref={userVideo} autoPlay playsInline />
+        {peers.map((peer, index) => {
+          return <Video key={index} peer={peer} />;
+        })}
+        <Button
+          style={{
+            marginRight: "5px",
+            position: "absolute",
+            right: "0px",
+            top: "0px",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            history.push("/");
+            window.location.reload();
+          }}
+        >
+          <Close />
+        </Button>
+      </Container>
+    </div>
   );
 };
 
