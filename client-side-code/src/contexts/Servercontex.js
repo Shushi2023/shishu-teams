@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
 
   useEffect(() => {
+    //This useEffect is for video calling and is called only once
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
@@ -39,6 +40,7 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    //This use effect is for the side chat during VC and is called on each render
     socket.on("message", (payload) => {
       setChat([...chat, payload]);
     });
@@ -48,6 +50,7 @@ const ContextProvider = ({ children }) => {
   });
 
   const answerCall = () => {
+    //When we answer a video call
     setCallAccepted(true);
 
     const peer = new Peer({ initiator: false, trickle: false, stream });
@@ -66,6 +69,7 @@ const ContextProvider = ({ children }) => {
   };
 
   const callUser = (id) => {
+    //This is called when we want to make a call
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
     peer.on("signal", (data) => {
@@ -91,12 +95,14 @@ const ContextProvider = ({ children }) => {
   };
 
   const leaveCall = () => {
+    //is called when the call is ended
     setCallEnded(true);
     connectionRef.current.destroy();
     window.location.reload();
   };
 
   const shareScreen = () => {
+    //For sharing the screen while video calling
     navigator.mediaDevices
       .getDisplayMedia({ cursor: true })
       .then((screenStream) => {
@@ -118,6 +124,7 @@ const ContextProvider = ({ children }) => {
   };
 
   const sendMessage = (e) => {
+    //used to send message along side video call
     e.preventDefault();
     socket.emit("message", { message: message, id: socket.id });
     setMessage("");

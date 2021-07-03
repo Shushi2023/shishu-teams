@@ -46,7 +46,10 @@ const JoinGame = (props) => {
         }}
         variant="contained"
         color="secondary"
-        onClick={() => {history.push("/"); window.location.reload()}}
+        onClick={() => {
+          history.push("/");
+          window.location.reload();
+        }}
       >
         <Close />
       </Button>

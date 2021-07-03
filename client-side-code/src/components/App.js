@@ -20,6 +20,7 @@ import WatchStream from "./stream/WatchStream";
 import CreateRoom from "./groupVC/CreateRoom";
 import Room from "./groupVC/Room";
 import ParentVC from "./ParentVC";
+import Youtube from "./youtube/Youtube";
 
 const App = () => {
   const [didRedirect, setDidRedirect] = React.useState(false);
@@ -50,6 +51,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route exact path="/stream" component={WatchStream} />
+            <Route exact path="/youtube" component={Youtube} />
             <PrivateRoute path="/groupVC" exact component={CreateRoom} />
             <PrivateRoute path="/groupVC/room/:roomID" component={Room} />
             <PrivateRoute exact path="/parentVC" component={ParentVC} />

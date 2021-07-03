@@ -46,13 +46,13 @@ export const Navigation = (props) => {
 
         <ul className=" nav navbar-nav navbar-right d-flex justify-content-between">
           <li className="d-flex flex-row">
-            <a
+            {/* <a
               onClick={() => history.push("/")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Features
-            </a>
+            </a> */}
             <a
               onClick={() => history.push("/")}
               className="page-scroll"
@@ -66,6 +66,13 @@ export const Navigation = (props) => {
               style={{ textDecoration: "none" }}
             >
               Let's Video Call
+            </a>
+            <a
+              onClick={() => history.push("/youtube")}
+              className="page-scroll"
+              style={{ textDecoration: "none" }}
+            >
+              Search Youtube
             </a>
             <a
               onClick={() => history.push("/draw")}
