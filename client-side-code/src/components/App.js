@@ -16,6 +16,7 @@ import Onboard from "./chessGame/onboard/onboard";
 import JoinGame from "./chessGame/onboard/joingame";
 import ChessGame from "./chessGame/chess/ui/chessgame";
 import JoinRoom from "./chessGame/onboard/joinroom";
+import WatchStream from "./stream/WatchStream";
 
 const App = () => {
   const [didRedirect, setDidRedirect] = React.useState(false);
@@ -45,6 +46,7 @@ const App = () => {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
+            <Route exact path="/stream" component={WatchStream} />
             <PrivateRoute exact path="/videoCall" component={VideoCall} />
             <PrivateRoute exact path="/draw" component={Draw} />
             <PrivateRoute exact path="/chat" component={Chatting} />
