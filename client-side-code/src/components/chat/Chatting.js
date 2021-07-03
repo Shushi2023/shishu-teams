@@ -1,13 +1,14 @@
-import { Navigation } from "../navigation"
-import Chat from "./Chat"
+import { Navigation } from "../navigation";
+import Chat from "./Chat";
 
 const Chatting = () => {
-    return(
-        <>
-            <Navigation />
-            <Chat />
-        </>
-    )
-}
+  //This is the component that finally displays the chat room, we added the nav bar here.
+  return (
+    <>
+      <Navigation />
+      <Chat />
+    </>
+  );
+};
 
 export default Chatting;
