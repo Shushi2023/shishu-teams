@@ -11,6 +11,7 @@ const AuthProvider = ({children}) => {
 
     const [currUser, setCurrUser] = useState(); //For managing the current user
     const [loading, setLoading] = useState(true); //Used to render our application only when we have a user
+    const [userName, setUserName] = useState();
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
@@ -42,7 +43,9 @@ const AuthProvider = ({children}) => {
         signUp, 
         logIn, 
         logOut, 
-        resetPassword
+        resetPassword, 
+        userName, 
+        setUserName
     }
 
     return(
