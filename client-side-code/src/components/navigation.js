@@ -47,49 +47,49 @@ export const Navigation = (props) => {
         <ul className=" nav navbar-nav navbar-right d-flex justify-content-between">
           <li className="d-flex flex-row">
             <a
-              onClick = {() => history.push("/")}
+              onClick={() => history.push("/")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Features
             </a>
             <a
-              onClick = {() => history.push("/")}
+              onClick={() => history.push("/")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               About
             </a>
             <a
-              onClick = {() => history.push("/videoCall")}
+              onClick={() => history.push("/parentVC")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Video Call
             </a>
             <a
-              onClick = {() => history.push("/draw")}
+              onClick={() => history.push("/draw")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Draw
             </a>
             <a
-              onClick = {() => history.push("/chat")}
+              onClick={() => history.push("/chat")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Chat Room
             </a>
             <a
-              onClick = {() => history.push("/playChess")}
+              onClick={() => history.push("/playChess")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Play Chess
             </a>
             <a
-              onClick = {() => history.push("/stream")}
+              onClick={() => history.push("/stream")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >

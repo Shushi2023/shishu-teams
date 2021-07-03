@@ -17,6 +17,9 @@ import JoinGame from "./chessGame/onboard/joingame";
 import ChessGame from "./chessGame/chess/ui/chessgame";
 import JoinRoom from "./chessGame/onboard/joinroom";
 import WatchStream from "./stream/WatchStream";
+import CreateRoom from "./groupVC/CreateRoom";
+import Room from "./groupVC/Room";
+import ParentVC from "./ParentVC";
 
 const App = () => {
   const [didRedirect, setDidRedirect] = React.useState(false);
@@ -47,10 +50,12 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
             <Route exact path="/stream" component={WatchStream} />
+            <PrivateRoute path="/groupVC" exact component={CreateRoom} />
+            <PrivateRoute path="/groupVC/room/:roomID" component={Room} />
+            <PrivateRoute exact path="/parentVC" component={ParentVC} />
             <PrivateRoute exact path="/videoCall" component={VideoCall} />
             <PrivateRoute exact path="/draw" component={Draw} />
             <PrivateRoute exact path="/chat" component={Chatting} />
-            {/* <PrivateRoute exact path = "/playChess" component = {PlayChess} /> */}
             <Route path="/playChess" exact>
               <Onboard setUserName={setUserName} />
             </Route>
@@ -64,11 +69,11 @@ const App = () => {
                 <JoinRoom />
               )}
             </Route>
-            <Redirect to = "/playChess" />
+            <Redirect to="/playChess" />
           </Switch>
         </AuthProvider>
       </BrowserRouter>
-     </ColorContext.Provider>
+    </ColorContext.Provider>
   );
 };
 

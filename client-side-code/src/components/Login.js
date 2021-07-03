@@ -22,7 +22,7 @@ const Login = () => {
       setLoading(true);
       await logIn(emailRef.current.value, passRef.current.value);
       console.log("userName", userName);
-      history.push("/videoCall");
+      history.push("/parentVC");
     } catch (err) {
       setError("Failed to Sign In");
     }
@@ -34,7 +34,7 @@ const Login = () => {
     <>
       <Navigation />
       <div className="loginContainer">
-        <form class="login" style = {{fontSize: "15px"}}>
+        <form class="login" style={{ fontSize: "15px" }}>
           <h1>Login</h1>
           {error && (
             <div
@@ -44,16 +44,18 @@ const Login = () => {
                 alignItems: "center",
               }}
             >
-              <Alert
-                style={{ opacity: "100%" }}
-                variant="danger"
-              >
+              <Alert style={{ opacity: "100%" }} variant="danger">
                 {error}
               </Alert>
             </div>
           )}
           <span class="form-input">
-            <input type="text" placeholder="Username" required onChange = {(e) => setUserName(e.target.value)}/>
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              onChange={(e) => setUserName(e.target.value)}
+            />
           </span>
           <span class="form-input">
             <input type="text" placeholder="Email" required ref={emailRef} />
@@ -66,14 +68,14 @@ const Login = () => {
               ref={passRef}
             />
           </span>
-          
-          <button disabled = {loading} class="form-button" onClick={handleSubmit}>
+
+          <button disabled={loading} class="form-button" onClick={handleSubmit}>
             Log In
           </button>
           <div className="w-100 text-center mt-3">
             <Link to="/forgotPassword">Forgot Password?</Link>
           </div>
-          <div className="w-100 text-center mt-2" style = {{color : "white"}}>
+          <div className="w-100 text-center mt-2" style={{ color: "white" }}>
             Need an account? <Link to="/signup">Sign up</Link>
           </div>
         </form>
