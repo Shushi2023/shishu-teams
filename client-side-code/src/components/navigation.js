@@ -47,49 +47,49 @@ export const Navigation = (props) => {
         <ul className=" nav navbar-nav navbar-right d-flex justify-content-between">
           <li className="d-flex flex-row">
             <a
-              href="/#features"
+              onClick = {() => history.push("/")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Features
             </a>
             <a
-              href="/#about"
+              onClick = {() => history.push("/")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               About
             </a>
             <a
-              href="/videoCall"
+              onClick = {() => history.push("/videoCall")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Video Call
             </a>
             <a
-              href="/draw"
+              onClick = {() => history.push("/draw")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Draw
             </a>
             <a
-              href="/chat"
+              onClick = {() => history.push("/chat")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Chat Room
             </a>
             <a
-              href="/playChess"
+              onClick = {() => history.push("/playChess")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >
               Let's Play Chess
             </a>
             <a
-              href="/stream"
+              onClick = {() => history.push("/stream")}
               className="page-scroll"
               style={{ textDecoration: "none" }}
             >

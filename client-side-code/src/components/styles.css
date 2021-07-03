@@ -129,3 +129,7 @@
 .form-button:hover {
 	background-color: rgba(44, 58, 17, 1);
 }
+
+a:hover{
+	cursor: pointer;
+}

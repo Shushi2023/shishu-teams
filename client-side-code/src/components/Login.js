@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/Authcontex";
 import "./styles.css";
@@ -8,7 +8,8 @@ import { Navigation } from "./navigation";
 const Login = () => {
   const emailRef = useRef();
   const passRef = useRef();
-  const { logIn } = useAuth();
+  const { logIn, userName, setUserName } = useAuth();
+  // const {setName} = useContext(SocketContext);
   const [error, setError] = useState();
   const [loading, setLoading] = useState(false);
   const history = useHistory();
@@ -20,6 +21,7 @@ const Login = () => {
       setError("");
       setLoading(true);
       await logIn(emailRef.current.value, passRef.current.value);
+      console.log("userName", userName);
       history.push("/videoCall");
     } catch (err) {
       setError("Failed to Sign In");
@@ -51,6 +53,9 @@ const Login = () => {
             </div>
           )}
           <span class="form-input">
+            <input type="text" placeholder="Username" required onChange = {(e) => setUserName(e.target.value)}/>
+          </span>
+          <span class="form-input">
             <input type="text" placeholder="Email" required ref={emailRef} />
           </span>
           <span class="form-input">
@@ -61,6 +66,7 @@ const Login = () => {
               ref={passRef}
             />
           </span>
+          
           <button disabled = {loading} class="form-button" onClick={handleSubmit}>
             Log In
           </button>
