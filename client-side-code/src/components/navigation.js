@@ -88,6 +88,13 @@ export const Navigation = (props) => {
             >
               Let's Play Chess
             </a>
+            <a
+              href="/stream"
+              className="page-scroll"
+              style={{ textDecoration: "none" }}
+            >
+              Watch Stream
+            </a>
           </li>
 
           <li>

@@ -41,6 +41,8 @@ function VideoChatApp(props) {
   const [isCalling, setIsCalling] = useState(false)
   const userVideo = useRef();
   const partnerVideo = useRef();
+  const connectionRef = useRef();
+
 
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
@@ -80,6 +82,8 @@ function VideoChatApp(props) {
       peer.signal(signal);
     })
 
+    connectionRef.current = peer;
+
   }
 
   function acceptCall() {
@@ -99,6 +103,7 @@ function VideoChatApp(props) {
     });
 
     peer.signal(callerSignal);
+    connectionRef.current = peer;
   }
 
   let UserVideo;
