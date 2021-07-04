@@ -3,6 +3,10 @@ import { Redirect } from "react-router-dom";
 import { uuid } from "uuidv4";
 import ColorContext from "../context/colorcontext";
 import "../chess.css";
+import { Button } from "@material-ui/core";
+import { Close } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
+
 const socket = require("../connection/socket").socket;
 
 /**
@@ -119,12 +123,34 @@ class CreateNewGame extends React.Component {
 
 const Onboard = (props) => {
   const color = React.useContext(ColorContext);
-
+  const history = useHistory();
   return (
-    <CreateNewGame
-      didRedirect={color.playerDidRedirect}
-      setUserName={props.setUserName}
-    />
+    <div
+      className="loginContainer"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Button
+        style={{
+          marginRight: "5px",
+          position: "absolute",
+          right: "0px",
+          top: "0px",
+        }}
+        variant="contained"
+        color="secondary"
+        onClick={() => history.push("/")}
+      >
+        <Close />
+      </Button>
+      <CreateNewGame
+        didRedirect={color.playerDidRedirect}
+        setUserName={props.setUserName}
+      />
+    </div>
   );
 };
 

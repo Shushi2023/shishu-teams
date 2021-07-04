@@ -1,13 +1,26 @@
 import { Button } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { Navigation } from "./navigation";
+import { Close } from "@material-ui/icons";
 const ParentVC = () => {
   const history = useHistory();
 
   return (
     <div>
-      <Navigation />
       <div className="loginContainer">
+        <Button
+          style={{
+            marginRight: "5px",
+            position: "absolute",
+            right: "0px",
+            top: "0px",
+          }}
+          variant="contained"
+          color="secondary"
+          onClick={() => history.push("/")}
+        >
+          <Close />
+        </Button>
         <Button
           style={{
             position: "absolute",
