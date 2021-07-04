@@ -94,7 +94,6 @@ export const Navigation = (props) => {
             >
               About
             </a>
-
             <Modal
               open={open}
               onClose={handleClose}
@@ -102,16 +101,6 @@ export const Navigation = (props) => {
               aria-describedby="simple-modal-description"
             >
               <div style={modalStyle} className={classes.paper}>
-                <Button
-                  style={{ position: "absolute", bottom: "5px", right: "37%" }}
-                  variant="contained"
-                  color="secondary"
-                  size="large"
-                  onClick={handleClose}
-                  startIcon={<Close />}
-                >
-                  Close
-                </Button>
                 <div class="featureContainer">
                   <div class="VideoCall">
                     <Button
@@ -183,6 +172,29 @@ export const Navigation = (props) => {
                       }}
                     >
                       Calendar
+                    </Button>
+                  </div>
+                  <div class="website">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      onClick={() => {
+                        history.push("/website");
+                      }}
+                    >
+                      Website
+                    </Button>
+                  </div>
+                  <div class="closeButton">
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      size="large"
+                      onClick={handleClose}
+                      startIcon={<Close />}
+                    >
+                      Close
                     </Button>
                   </div>
                 </div>
