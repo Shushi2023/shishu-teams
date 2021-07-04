@@ -63,16 +63,7 @@ const App = () => {
             <PrivateRoute exact path="/draw" component={Draw} />
             <PrivateRoute exact path="/chat" component={Chatting} />
             <Route path="/playChess" exact>
-              <div
-                className="loginContainer"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Onboard setUserName={setUserName} />
-              </div>
+              <Onboard setUserName={setUserName} />
             </Route>
             <Route path="/playChess/game/:gameid" exact>
               {didRedirect ? (
