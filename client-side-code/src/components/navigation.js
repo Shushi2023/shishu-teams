@@ -114,6 +114,18 @@ export const Navigation = (props) => {
                       Let's Video Chat
                     </Button>
                   </div>
+                  <div class="news">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      onClick={() => {
+                        history.push("/news");
+                      }}
+                    >
+                      Search News
+                    </Button>
+                  </div>
                   <div class="YTPlayer">
                     <Button
                       variant="contained"

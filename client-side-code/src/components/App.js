@@ -23,6 +23,7 @@ import ParentVC from "./ParentVC";
 import Youtube from "./youtube/Youtube";
 import MyCalendar from "./calendar/MyCalendar";
 import Website from "./website/Website";
+import News from "./news/News";
 
 const App = () => {
   const [didRedirect, setDidRedirect] = React.useState(false);
@@ -56,6 +57,7 @@ const App = () => {
             <Route exact path="/youtube" component={Youtube} />
             <Route exact path="/calendar" component={MyCalendar} />
             <Route exact path="/website" component={Website} />
+            <Route exact path="/news" component={News} />
             <PrivateRoute path="/groupVC" exact component={CreateRoom} />
             <PrivateRoute path="/groupVC/room/:roomID" component={Room} />
             <PrivateRoute exact path="/parentVC" component={ParentVC} />

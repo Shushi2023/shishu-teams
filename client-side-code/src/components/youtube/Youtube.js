@@ -69,6 +69,7 @@ const Youtube = () => {
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search On Youtube"
               />
               <button
                 style={{
