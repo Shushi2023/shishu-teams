@@ -142,14 +142,20 @@ a:hover {
 .featureContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 50px 10px;
   grid-template-areas:
     "VideoCall YTPlayer Chess"
     "Chat Stream Calendar"
-    ". . .";
+    "website closeButton .";
 }
 
+.website {
+  grid-area: website;
+}
+.closeButton {
+  grid-area: closeButton;
+}
 .VideoCall {
   grid-area: VideoCall;
 }
