@@ -8,7 +8,7 @@ const PrivateRoute = ({component : Component, ...rest}) => { //This is a private
 
     return(
         <Route {...rest} render = {props => {
-            return currUser ? <Component {...props} /> : <Redirect to = '/login' /> 
+            return currUser ? <Component {...props} /> : <Redirect to = '/login' />  //Here we have put up the condition which allows the component to return only if we have a user. 
         }}>
 
         </Route>

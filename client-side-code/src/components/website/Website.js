@@ -10,6 +10,7 @@ const Website = () => {
   const history = useHistory();
 
   const handleSubmit = (e) => {
+    //This is called when we search for a website.
     e.preventDefault();
     setFlag(true);
   };
@@ -51,13 +52,15 @@ const Website = () => {
         }}
       >
         {flag && (
-          <Iframe
-            url={url}
+          <Iframe //We are using Iframe to display websites, some of the advanced wesites might not work due to security issues.
+            url={url} //This is the website we want to view
             width="50%"
             height="75%"
             display="initial"
             position="absolute"
             styles={{ left: "50%", right: "50%" }}
+            sandbox="allow-same-origin"
+            sandbox="allow-forms" //Allows us to open forms in our Iframe
           />
         )}
       </div>

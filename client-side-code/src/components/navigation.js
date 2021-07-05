@@ -6,13 +6,13 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 export const Navigation = (props) => {
-  const [error, setError] = useState();
-  const { logOut, currUser } = useAuth();
-  const history = useHistory();
+  const [error, setError] = useState(); //This is used to set the error if the login/signup fails
+  const { logOut, currUser } = useAuth(); //Importing the logOut function and the current user from the AuthContex
+  const history = useHistory(); //This is used to redirect
 
-  const [open, setOpen] = useState(false); //For opening/closing the modal
+  const [open, setOpen] = useState(false); //For opening and closing the modal
   const useStyles = makeStyles((theme) => ({
-    paper: {
+    paper: { //For styling the paper 
       position: "absolute",
       width: 400,
       backgroundColor: theme.palette.background.paper,
@@ -23,7 +23,7 @@ export const Navigation = (props) => {
       justifyContent: "space-between",
     },
   }));
-  const getModalStyle = () => {
+  const getModalStyle = () => { //For giving position to the modal
     const top = 50;
     const left = 50;
     return {
@@ -56,7 +56,7 @@ export const Navigation = (props) => {
     }
   };
   return (
-    <Navbar
+    <Navbar 
       id="menu"
       className="navbar-default navbar-fixed-top bg-dark"
       style={{ marginBottom: "0px" }}
@@ -94,7 +94,13 @@ export const Navigation = (props) => {
             >
               About
             </a>
-            <Modal
+            <a
+              onClick={() => history.push("/bot")}
+              style={{ textDecoration: "none" }}
+            >
+              Bot
+            </a>
+            <Modal //This is our features modal which includes all the features.
               open={open}
               onClose={handleClose}
               aria-labelledby="simple-modal-title"
@@ -159,7 +165,7 @@ export const Navigation = (props) => {
                         history.push("/chat");
                       }}
                     >
-                      Let's Chat
+                      Chat Room
                     </Button>
                   </div>
                   <div class="Stream">
@@ -217,7 +223,7 @@ export const Navigation = (props) => {
           <li>
             {!currUser && (
               <span style={{ marginRight: "10px" }}>
-                <Button
+                <Button //This is our login button which is only visible if a user is not logged in.
                   style={{ fontSize: "15px" }}
                   variant="contained"
                   color="primary"
@@ -230,7 +236,7 @@ export const Navigation = (props) => {
 
             {!currUser && (
               <span style={{ marginRight: "10px" }}>
-                <Button
+                <Button //This is the signup button which is only visible only if the user is not logged in.
                   style={{ fontSize: "15px" }}
                   variant="contained"
                   color="primary"
@@ -243,7 +249,7 @@ export const Navigation = (props) => {
 
             {currUser && (
               <span>
-                <Button
+                <Button //This is the log out button which is visible only when the user is logged in. 
                   style={{ fontSize: "15px" }}
                   variant="contained"
                   color="primary"

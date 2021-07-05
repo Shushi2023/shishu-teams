@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useCallback} from "react";
 import Signup from "./Signup";
 import Login from "./Login";
 
@@ -24,19 +24,22 @@ import Youtube from "./youtube/Youtube";
 import MyCalendar from "./calendar/MyCalendar";
 import Website from "./website/Website";
 import News from "./news/News";
+import Bot from "./chatbot/Bot";
 
+
+//This is our main component. 
 const App = () => {
-  const [didRedirect, setDidRedirect] = React.useState(false);
+  const [didRedirect, setDidRedirect] = useState(false); //To check if we redirected or not for chess component
 
-  const playerDidRedirect = React.useCallback(() => {
+  const playerDidRedirect = useCallback(() => { //Called if the player is redirected(chess)
     setDidRedirect(true);
   }, []);
 
-  const playerDidNotRedirect = React.useCallback(() => {
+  const playerDidNotRedirect = useCallback(() => { //Called if the player is not redirected(chess)
     setDidRedirect(false);
   }, []);
 
-  const [userName, setUserName] = React.useState("");
+  const [userName, setUserName] = useState(""); //To get the name of the user. 
 
   return (
     <ColorContext.Provider
@@ -53,11 +56,12 @@ const App = () => {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/forgotPassword" component={ForgotPassword} />
-            <Route exact path="/stream" component={WatchStream} />
-            <Route exact path="/youtube" component={Youtube} />
-            <Route exact path="/calendar" component={MyCalendar} />
-            <Route exact path="/website" component={Website} />
-            <Route exact path="/news" component={News} />
+            <PrivateRoute exact path="/stream" component={WatchStream} />
+            <PrivateRoute exact path="/youtube" component={Youtube} />
+            <PrivateRoute exact path="/calendar" component={MyCalendar} />
+            <PrivateRoute exact path="/website" component={Website} />
+            <PrivateRoute exact path="/news" component={News} />
+            <PrivateRoute exact path = "/bot" component={Bot} />
             <PrivateRoute path="/groupVC" exact component={CreateRoom} />
             <PrivateRoute path="/groupVC/room/:roomID" component={Room} />
             <PrivateRoute exact path="/parentVC" component={ParentVC} />
@@ -65,10 +69,10 @@ const App = () => {
             <PrivateRoute exact path="/draw" component={Draw} />
             <PrivateRoute exact path="/chat" component={Chatting} />
             <Route path="/playChess" exact>
-              <Onboard setUserName={setUserName} />
+              <Onboard setUserName={setUserName} /> 
             </Route>
             <Route path="/playChess/game/:gameid" exact>
-              {didRedirect ? (
+              {didRedirect ? ( //If we are redirected then this component is called(chess) otherwise the above one is called. 
                 <React.Fragment>
                   <div
                     className="loginContainer"

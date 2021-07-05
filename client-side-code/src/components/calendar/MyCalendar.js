@@ -1,12 +1,13 @@
 import React from "react";
-import { CalendarComponent } from "@syncfusion/ej2-react-calendars";
+import { CalendarComponent } from "@syncfusion/ej2-react-calendars"; //We used this calander component to display.
 import "./calendar.css";
 import { Button } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
 const MyCalendar = () => {
-  const history = useHistory();
+  //This is the calander component.
+  const history = useHistory(); //This is used for redirecting when we close the calander
 
   return (
     <>

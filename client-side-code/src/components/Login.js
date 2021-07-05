@@ -6,14 +6,15 @@ import { Link, useHistory } from "react-router-dom";
 import { Navigation } from "./navigation";
 
 const Login = () => {
-  const emailRef = useRef();
-  const passRef = useRef();
-  const { logIn } = useAuth();
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const emailRef = useRef(); //For storing Email
+  const passRef = useRef(); //For storing pass
+  const { logIn } = useAuth(); //Getting the login functionality from the Authcontex
+  const [error, setError] = useState(); //For setting any errors if we get during login
+  const [loading, setLoading] = useState(false); //For disabling the login button while loading
+  const history = useHistory(); //For redirecting after login
 
   const handleSubmit = async (e) => {
+    //Called when we login
     e.preventDefault();
 
     try {
@@ -34,7 +35,7 @@ const Login = () => {
       <div className="loginContainer">
         <form class="login" style={{ fontSize: "15px" }}>
           <h1>Login</h1>
-          {error && (
+          {error && ( //This is the error displayed if any
             <div
               style={{
                 display: "flex",
@@ -63,7 +64,11 @@ const Login = () => {
             Log In
           </button>
           <div className="w-100 text-center mt-3">
-            <Link to="/forgotPassword">Forgot Password?</Link>
+            <Link
+              to="/forgotPassword" //This is the link to go to the forgotPassword. A mail is sent to the mail ID if we click on the forgot password
+            >
+              Forgot Password?
+            </Link>
           </div>
           <div className="w-100 text-center mt-2" style={{ color: "white" }}>
             Need an account? <Link to="/signup">Sign up</Link>
