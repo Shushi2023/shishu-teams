@@ -40,20 +40,22 @@ const videoConstraints = {
 const socket = io("https://shishu-teams.herokuapp.com");
 
 const Room = (props) => {
-  const [peers, setPeers] = useState([]);
-  const history = useHistory();
-  const userVideo = useRef();
-  const peersRef = useRef([]);
-  const roomID = props.match.params.roomID;
+  const [peers, setPeers] = useState([]); //This is for setting the people in group chat
+  const history = useHistory(); //For redirecting when we close
+  const userVideo = useRef(); //Our video
+  const peersRef = useRef([]); //Video of the other users in chat
+  const roomID = props.match.params.roomID; //This is the room ID for our video room
   useEffect(() => {
+    //This is called only once
     navigator.mediaDevices
-      .getUserMedia({ video: videoConstraints, audio: true })
+      .getUserMedia({ video: videoConstraints, audio: true }) //Asking the browser for video and audio permissions
       .then((stream) => {
-        userVideo.current.srcObject = stream;
+        userVideo.current.srcObject = stream; //Setting our video to the current video stream
         socket.emit("join room", roomID);
         socket.on("all users", (users) => {
           const peers = [];
           users.forEach((userID) => {
+            //Iterating over all the other users in chat
             const peer = createPeer(userID, socket.id, stream);
             peersRef.current.push({
               peerID: userID,
@@ -65,6 +67,7 @@ const Room = (props) => {
         });
 
         socket.on("user joined", (payload) => {
+          //Called when a peer joins the call
           const peer = addPeer(payload.signal, payload.callerID, stream);
           peersRef.current.push({
             peerID: payload.callerID,
@@ -82,6 +85,7 @@ const Room = (props) => {
   }, []);
 
   function createPeer(userToSignal, callerID, stream) {
+    //For creating a peer.
     const peer = new Peer({
       initiator: true,
       trickle: false,
@@ -96,6 +100,7 @@ const Room = (props) => {
   }
 
   function addPeer(incomingSignal, callerID, stream) {
+    //For adding a peer.
     const peer = new Peer({
       initiator: false,
       trickle: false,
@@ -120,6 +125,7 @@ const Room = (props) => {
       <Container>
         <StyledVideo muted ref={userVideo} autoPlay playsInline />
         {peers.map((peer, index) => {
+          //Displaying our video using StyledVideo and other people videos using this map function
           return <Video key={index} peer={peer} />;
         })}
         <Button

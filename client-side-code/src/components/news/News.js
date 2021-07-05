@@ -4,12 +4,14 @@ import { Button } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
 const searchNews = async (q) => {
+  //This is where we make the api call
   q = encodeURIComponent(q);
   const response = await fetch(
     `https://bing-news-search1.p.rapidapi.com/news/search?freshness=Day&textFormat=Raw&safeSearch=Strict&q=${q}`,
     {
       method: "GET",
       headers: {
+        //Setting the required headers required for the API here.
         "x-rapidapi-host": "bing-news-search1.p.rapidapi.com",
         "x-rapidapi-key": "ae5d4b1fe2msh0db59c7dbd03ff4p15ee88jsn9e54b6a6f3ea",
         "x-bingapis-sdk": "true",
@@ -21,6 +23,7 @@ const searchNews = async (q) => {
 };
 
 const Item = ({ item }) => {
+  //This is for styling a single item of our search result
   const formatDate = (s) =>
     new Date(s).toLocaleDateString(undefined, { dateStyle: "long" });
   return (
@@ -49,12 +52,15 @@ const Item = ({ item }) => {
 };
 
 const News = () => {
-  const [query, setQuery] = useState("");
-  const [list, setList] = useState(null);
-  const history = useHistory();
+  //This is our news component for getting the news
+  const [query, setQuery] = useState(""); //This is the news we want to search for
+  const [list, setList] = useState(null); //This is the list of results
+  const history = useHistory(); //This is for redirecting when we close the component
+
   const search = (e) => {
-    e.preventDefault();
-    searchNews(query).then(setList);
+    //Called when we click on search
+    e.preventDefault(); //Prevents the default behaviour
+    searchNews(query).then(setList); //The main function that's called
   };
   return (
     <div className="background">

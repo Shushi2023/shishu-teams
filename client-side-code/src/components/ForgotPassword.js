@@ -6,14 +6,16 @@ import { Link, useHistory } from "react-router-dom";
 import { Navigation } from "./navigation";
 
 const ForgotPassword = () => {
-  const emailRef = useRef();
-  const { resetPassword } = useAuth();
-  const [error, setError] = useState();
-  const [message, setMessage] = useState();
-  const [loading, setLoading] = useState(false);
+  //This is the forgot password component.
+  const emailRef = useRef(); //Used get the email
+  const { resetPassword } = useAuth(); //resetPassword method is imported from the Authcontex
+  const [error, setError] = useState(); //To set the error if we get any
+  const [message, setMessage] = useState(); //To set the message once the mail is sent
+  const [loading, setLoading] = useState(false); //Disabling the button while loading.
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    //Called when we click on the Reset password button.
+    e.preventDefault(); //Prevents the default behaviour of the form.
     try {
       setError("");
       setMessage("");

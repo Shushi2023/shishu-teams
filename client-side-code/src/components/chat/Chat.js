@@ -1,13 +1,12 @@
 import axios from "axios";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./chat.css";
 import { ChatEngine } from "react-chat-engine";
 import { useAuth } from "../../contexts/Authcontex";
 
 const Chat = () => {
-  const { currUser } = useAuth();
-  const [loading, setLoading] = useState(true);
-  console.log("User ", currUser);
+  const { currUser } = useAuth(); //For getting the current user
+
   const getFile = async (url) => {
     let response = await fetch(url);
     let data = await response.blob();
@@ -25,7 +24,7 @@ const Chat = () => {
             "user-secret": currUser.uid, //Setting the uid here
           },
         })
-        .then(() => setLoading(false))
+        .then(console.log("LOADED...."))
         .catch((e) => {
           let formdata = new FormData(); //New data is added if we don't have any user.
           formdata.append("email", currUser.email);
@@ -46,17 +45,17 @@ const Chat = () => {
                     },
                   }
                 )
-                .then(() => setLoading(false))
+                .then(console.log("LOADING...."))
                 .catch((e) => console.log("e", e.response));
             });
           } else {
             axios
               .post("https://api.chatengine.io/users/", formdata, {
                 headers: {
-                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
+                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY, //We set this inside the environment variables.
                 },
               })
-              .then(() => setLoading(false))
+              .then(console.log("LOADED...."))
               .catch((e) => console.log("e", e.response));
           }
         });

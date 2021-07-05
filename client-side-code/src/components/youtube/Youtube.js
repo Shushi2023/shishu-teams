@@ -6,6 +6,7 @@ import { Close } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 
 const searchYouTube = async (q) => {
+  //Called when we click on search
   //API for getting the youtube data
   q = encodeURIComponent(q);
   const response = await fetch(
@@ -13,6 +14,7 @@ const searchYouTube = async (q) => {
     {
       method: "GET",
       headers: {
+        //Headers required by the api
         "x-rapidapi-host": "youtube-search-results.p.rapidapi.com",
         "x-rapidapi-key": "29e5adb8bamsh455113d4b3ece88p163a33jsn864e6b08f6f5",
       },
@@ -24,9 +26,9 @@ const searchYouTube = async (q) => {
 };
 
 const Youtube = () => {
-  const [query, setQuery] = useState("");
-  const [list, setList] = useState(null);
-  const history = useHistory();
+  const [query, setQuery] = useState(""); //This is what we want to search for
+  const [list, setList] = useState(null); //This is the result we get after searching
+  const history = useHistory(); //Used to redirect when we close
 
   const search = (e) => {
     //Calling the search function
@@ -104,7 +106,10 @@ const Youtube = () => {
                         </b>
                         <p>{item.description}</p>
                       </div>
-                      <ReactPlayer url={item.url} controls={true} />
+                      <ReactPlayer //We use the react player for viewing the youtube video within our app.
+                        url={item.url}
+                        controls={true}
+                      />
                       <ul className="meta">
                         <li>
                           By: <a href={item.author.ref}>{item.author.name}</a>

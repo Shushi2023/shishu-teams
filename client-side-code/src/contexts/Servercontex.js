@@ -8,25 +8,25 @@ const SocketContext = createContext();
 const socket = io("https://shishu-teams.herokuapp.com");
 
 const ContextProvider = ({ children }) => {
-  const [callAccepted, setCallAccepted] = useState(false);
-  const [callEnded, setCallEnded] = useState(false);
-  const [stream, setStream] = useState();
-  const [name, setName] = useState("");
-  const [call, setCall] = useState({});
-  const [me, setMe] = useState("");
-  const [message, setMessage] = useState("");
-  const [chat, setChat] = useState([]);
-  const scrollRef = useRef();
-  const myVideo = useRef();
-  const userVideo = useRef();
+  const [callAccepted, setCallAccepted] = useState(false); //For checking if we have accepted the call or not
+  const [callEnded, setCallEnded] = useState(false); //To check if the call is ended or not
+  const [stream, setStream] = useState(); //To set the stream object
+  const [name, setName] = useState(""); //To set the name
+  const [call, setCall] = useState({}); //To set the calling data
+  const [me, setMe] = useState(""); //To set our data(basically our socket ID)
+  const [message, setMessage] = useState(""); //The message we want to send while video calling in the sidechat
+  const [chat, setChat] = useState([]); //To store the complete chat till any given time
+  const scrollRef = useRef(); //To set the scrolling to be allowed only on the side chat and not on complete page
+  const myVideo = useRef(); //To store my video
+  const userVideo = useRef(); //To get the user's video
   const connectionRef = useRef();
 
   useEffect(() => {
     //This useEffect is for video calling and is called only once
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      .getUserMedia({ video: true, audio: true }) //Asking chrome to allow video and audio
       .then((currentStream) => {
-        setStream(currentStream);
+        setStream(currentStream); //Setting the current stream to stream
         if (myVideo.current) {
           myVideo.current.srcObject = currentStream;
         }
@@ -53,7 +53,7 @@ const ContextProvider = ({ children }) => {
     //When we answer a video call
     setCallAccepted(true);
 
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+    const peer = new Peer({ initiator: false, trickle: false, stream }); //Creating a new peer.
 
     peer.on("signal", (data) => {
       socket.emit("answerCall", { signal: data, to: call.from });

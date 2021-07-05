@@ -1,11 +1,10 @@
-import { Navigation } from "../navigation";
 import Chat from "./Chat";
 import { Button } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { useHistory } from "react-router";
 
 const Chatting = () => {
-  const history = useHistory();
+  const history = useHistory(); //This is used for redirecting when the close button is clicked.
   //This is the component that finally displays the chat room, we added the nav bar here.
   return (
     <>
