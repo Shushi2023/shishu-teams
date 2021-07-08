@@ -20,7 +20,6 @@ import Board from "./whiteboard/Board";
 
 const VideoPlayer = () => {
   const {
-    name,
     callAccepted,
     myVideo,
     userVideo,
@@ -29,7 +28,6 @@ const VideoPlayer = () => {
     call,
     shareScreen,
     me,
-    setName,
     leaveCall,
     callUser,
     answerCall,
@@ -276,6 +274,7 @@ const VideoPlayer = () => {
                 style={{ width: "100%", border: "1px solid black" }}
                 ref={userVideo}
                 autoPlay
+                controls
               />
             )}
           {stream && (
@@ -285,6 +284,7 @@ const VideoPlayer = () => {
               ref={myVideo}
               autoPlay
               muted={mute}
+              controls
             />
           )}
         </div>
