@@ -232,7 +232,9 @@ class ChessGame extends React.Component {
                           />
                         );
                       }
-                      return;
+                      else{
+                        return null;
+                      };
                     })}
                   </React.Fragment>
                 );

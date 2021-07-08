@@ -20,7 +20,6 @@ import Board from "./whiteboard/Board";
 
 const VideoPlayer = () => {
   const {
-    name,
     callAccepted,
     myVideo,
     userVideo,
@@ -29,7 +28,6 @@ const VideoPlayer = () => {
     call,
     shareScreen,
     me,
-    setName,
     leaveCall,
     callUser,
     answerCall,

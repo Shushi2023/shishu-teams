@@ -12,7 +12,8 @@ export const Navigation = (props) => {
 
   const [open, setOpen] = useState(false); //For opening and closing the modal
   const useStyles = makeStyles((theme) => ({
-    paper: { //For styling the paper 
+    paper: {
+      //For styling the paper
       position: "absolute",
       width: 400,
       backgroundColor: theme.palette.background.paper,
@@ -23,7 +24,8 @@ export const Navigation = (props) => {
       justifyContent: "space-between",
     },
   }));
-  const getModalStyle = () => { //For giving position to the modal
+  const getModalStyle = () => {
+    //For giving position to the modal
     const top = 50;
     const left = 50;
     return {
@@ -56,7 +58,7 @@ export const Navigation = (props) => {
     }
   };
   return (
-    <Navbar 
+    <Navbar
       id="menu"
       className="navbar-default navbar-fixed-top bg-dark"
       style={{ marginBottom: "0px" }}
@@ -93,12 +95,6 @@ export const Navigation = (props) => {
               style={{ textDecoration: "none" }}
             >
               About
-            </a>
-            <a
-              onClick={() => history.push("/bot")}
-              style={{ textDecoration: "none" }}
-            >
-              Bot
             </a>
             <Modal //This is our features modal which includes all the features.
               open={open}
@@ -249,7 +245,7 @@ export const Navigation = (props) => {
 
             {currUser && (
               <span>
-                <Button //This is the log out button which is visible only when the user is logged in. 
+                <Button //This is the log out button which is visible only when the user is logged in.
                   style={{ fontSize: "15px" }}
                   variant="contained"
                   color="primary"
