@@ -92,8 +92,8 @@ class ChessGame extends React.Component {
     if (isMyMove) {
       socket.emit("new move", {
         nextPlayerColorToMove: !this.state.gameState.thisPlayersColorIsWhite,
-        playerColorThatJustMovedIsWhite:
-          this.state.gameState.thisPlayersColorIsWhite,
+        playerColorThatJustMovedIsWhite: this.state.gameState
+          .thisPlayersColorIsWhite,
         selectedId: selectedId,
         finalPosition: finalPosition,
         gameId: this.props.gameId,
@@ -231,10 +231,9 @@ class ChessGame extends React.Component {
                             blackKingInCheck={this.state.blackKingInCheck}
                           />
                         );
-                      }
-                      else{
+                      } else {
                         return null;
-                      };
+                      }
                     })}
                   </React.Fragment>
                 );

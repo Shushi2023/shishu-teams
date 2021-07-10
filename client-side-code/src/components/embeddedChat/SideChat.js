@@ -6,8 +6,9 @@ import { Button } from "@material-ui/core";
 
 const SideChat = () => {
   // This component is used to display the chat besided the video call feature.
-  const { message, setMessage, sendMessage, chat, me, scrollRef } =
-    useContext(SocketContext); //sendMessage is defined in the SocketContext
+  const { message, setMessage, sendMessage, chat, me, scrollRef } = useContext(
+    SocketContext
+  ); //sendMessage is defined in the SocketContext
 
   return (
     <div className="center">

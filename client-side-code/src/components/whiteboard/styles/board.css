@@ -1,30 +1,48 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  .whiteboard {
-    height: auto;
-    width: auto;
-    position: absolute; 
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-  }
-  
-  .colors {
-    position: fixed;
-  }
-  
-  .color {
-    display: inline-block;
-    height: 48px;
-    width: 48px;
-  }
-  
-  .color.black { background-color: black; border: 1px solid white }
-  .color.red { background-color: red; border: 1px solid white}
-  .color.green { background-color: green; border: 1px solid white}
-  .color.blue { background-color: blue; border: 1px solid white}
-  .color.yellow { background-color: yellow; border: 1px solid white}
-  .color.grey { background-color: grey; border: 1px solid white}
+  box-sizing: border-box;
+}
+
+.whiteboard {
+  height: auto;
+  width: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.colors {
+  position: fixed;
+}
+
+.color {
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+}
+
+.color.black {
+  background-color: black;
+  border: 1px solid white;
+}
+.color.red {
+  background-color: red;
+  border: 1px solid white;
+}
+.color.green {
+  background-color: green;
+  border: 1px solid white;
+}
+.color.blue {
+  background-color: blue;
+  border: 1px solid white;
+}
+.color.yellow {
+  background-color: yellow;
+  border: 1px solid white;
+}
+.color.grey {
+  background-color: grey;
+  border: 1px solid white;
+}
