@@ -6,8 +6,8 @@
 3.) The application is deployed on Heroku, Continious Deployment is activated, so as soon as some code 
     is pushed to master branch, automatic deployment is started on Heroku. <br/>
 4.) The features of the project are as follows: <br/>
-    4.1) Video Calling, both One-One and Group(upto 4 people) [Used Socket.io and Peer.js]<br/>
-        4.1.1) The one-one video calling includes features like screenshare, fullscreen, chat while video call, whiteboard. 
+    4.1) Video Calling, both One-One and Group(upto 4 people) [Used Socket.io and Peer.js]
+        4.1.1) The one-one video calling includes features like screenshare, fullscreen, chat while video call, whiteboard.  <br />
     4.2) A Youtube room where we can view Youtube Videos. [Youtube API provided by Rapidapi.com]<br/>
     4.3) A Chess Game, that can be played among 2 people while Video Calling. [Used chess.js, socket.io and peer.js]
          (Note : The Video Calling might not work at large distances due to some security issues of Heroku) <br/>
@@ -20,6 +20,9 @@
          (Note : Some sites like google, microsoft and many more might not be visible because of security issues)
          (To try the feature you can use https://wikipedia.com/)<br />
     4.8) A News page where you can search for latest news. [Used Bing API(by Microsoft Azure) via Rapidapi.com platform]<br />
+5.) I have created 3 branches here, Master Branch which is the final code that's deployed, Dev Branch where I did all the development,
+    and a QA branch for testing. Since I was the only one working on the project, I used the Dev branch for testing and merged the code
+    directly from dev branch to master branch which is then automatically deployed to Heroku. 
     
 The Site is hosted at :  https://shishu-teams.herokuapp.com/
     
