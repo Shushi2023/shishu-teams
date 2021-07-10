@@ -31,7 +31,7 @@ const VideoPlayer = () => {
     leaveCall,
     callUser,
     answerCall,
-  } = useContext(SocketContext); //Different functionalities and variables importing from the socketcontext. 
+  } = useContext(SocketContext); //Different functionalities and variables importing from the socketcontext.
 
   const [idToCall, setIdToCall] = useState(""); //For getting our call ID
   const [mute, setMute] = useState(true); //For muting and unmuting

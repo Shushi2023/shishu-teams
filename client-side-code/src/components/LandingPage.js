@@ -29,7 +29,9 @@ const LandingPage = () => {
       <Header data={landingPageData.Header} />
       <Features data={landingPageData.Features} />
       <About data={landingPageData.About} />
-      <div style={{ position: "sticky", bottom: "2%", left: "100%" }}>  {/*This is the code for our Shishu Bot*/}
+      <div style={{ position: "sticky", bottom: "2%", left: "100%" }}>
+        {" "}
+        {/*This is the code for our Shishu Bot*/}
         {flag && <Bot onClick={() => setFlag(!flag)} flag={flag} />}
         <div className="chat-btn" onClick={() => setFlag(!flag)}></div>
       </div>

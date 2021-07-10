@@ -1,45 +1,45 @@
 {
-    "Header": {
+  "Header": {
+    "title": "Shishu Teams is for everyone",
+    "paragraph": "Whether it’s chat, calls, or video, anyone can engage at any time, bringing everyone closer. Your docs, photos, videos, chat history, and meeting notes are always there, so it’s easier to work together. Set up your team’s space with all the apps you need so you can stay in just one place instead of jumping around."
+  },
 
-        "title": "Shishu Teams is for everyone",
-        "paragraph" : "Whether it’s chat, calls, or video, anyone can engage at any time, bringing everyone closer. Your docs, photos, videos, chat history, and meeting notes are always there, so it’s easier to work together. Set up your team’s space with all the apps you need so you can stay in just one place instead of jumping around."
-    },
-    
-    "About": {
-        "paragraph" : "Shishu Teams is for everyone Whether it’s chat, calls, or video, anyone can engage at any time, bringing everyone closer. Your docs, photos, videos, chat history, and meeting notes are always there, so it’s easier to work together. Set up your team’s space with all the apps you need so you can stay in just one place instead of jumping around.", 
-        "Why": [
-            "Structured workspace",
-            "Empowered collaboration",
-            "More flexible and interactive meetings",
-            "On-the-go communication"
-        ],
-        "Why2": [
-            "Secure Phone System",
-            "Security and compliance",
-            "File storage",
-            "Templates capability"
-        ]
-    },
-
-    "Features": [{
-            "icon": "fa fa-comments-o",
-            "title": "Chat",
-            "text": "Share your opinion and have fun with your friends."
-        },
-        {
-            "icon": "fa fa-bullhorn",
-            "title": "Call",
-            "text": "Make and receive calls directly in Shishu Teams."
-        },
-        {
-            "icon": "fa fa-group",
-            "title": "Meet",
-            "text": "Instantly go from group chat to video conference with the touch of a button. Teams of two or 10,000 can meet in one place from anywhere."
-        },
-        {
-            "icon": "fa fa-magic",
-            "title": "Draw",
-            "text": "Play games like pictionary with your friends using this advance feature of Whiteboard."
-        }
+  "About": {
+    "paragraph": "Shishu Teams is for everyone Whether it’s chat, calls, or video, anyone can engage at any time, bringing everyone closer. Your docs, photos, videos, chat history, and meeting notes are always there, so it’s easier to work together. Set up your team’s space with all the apps you need so you can stay in just one place instead of jumping around.",
+    "Why": [
+      "Structured workspace",
+      "Empowered collaboration",
+      "More flexible and interactive meetings",
+      "On-the-go communication"
+    ],
+    "Why2": [
+      "Secure Phone System",
+      "Security and compliance",
+      "File storage",
+      "Templates capability"
     ]
+  },
+
+  "Features": [
+    {
+      "icon": "fa fa-comments-o",
+      "title": "Chat",
+      "text": "Share your opinion and have fun with your friends."
+    },
+    {
+      "icon": "fa fa-bullhorn",
+      "title": "Call",
+      "text": "Make and receive calls directly in Shishu Teams."
+    },
+    {
+      "icon": "fa fa-group",
+      "title": "Meet",
+      "text": "Instantly go from group chat to video conference with the touch of a button. Teams of two or 10,000 can meet in one place from anywhere."
+    },
+    {
+      "icon": "fa fa-magic",
+      "title": "Draw",
+      "text": "Play games like pictionary with your friends using this advance feature of Whiteboard."
+    }
+  ]
 }
