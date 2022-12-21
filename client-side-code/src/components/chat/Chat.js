@@ -19,7 +19,8 @@ const Chat = () => {
         .get("https://api.chatengine.io/users/me", {
           //For fetching the number of users.
           headers: {
-            "project-id": process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID, //Setting the project ID here
+            // "project-id": process.env.REACT_APP_CHAT_ENGINE_PROJECT_ID, //Setting the project ID here
+            "project-id": "1b298da8-8925-4380-8cb5-bbfe885e9a59", //Setting the project ID here
             "user-name": currUser.email, //Setting the email here
             "user-secret": currUser.uid, //Setting the uid here
           },
@@ -52,7 +53,8 @@ const Chat = () => {
             axios
               .post("https://api.chatengine.io/users/", formdata, {
                 headers: {
-                  "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY, //We set this inside the environment variables.
+                  // "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY, //We set this inside the environment variables.
+                  "private-key": "560b46cb-e848-4803-9034-b8ea7232be6c", //We set this inside the environment variables.
                 },
               })
               .then(console.log("LOADED...."))

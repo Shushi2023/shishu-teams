@@ -57,8 +57,8 @@ const WatchStream = () => {
           <iframe
             //We use the iframe to display the streaming.
 
-            // src={`https://player.twitch.tv/?channel=${username}&parent=localhost&muted=true`}
-            src={`https://player.twitch.tv/?channel=${username}&parent=shishu-teams.herokuapp.com&muted=true`}
+            src={`https://player.twitch.tv/?channel=${username}&parent=localhost&muted=true`}
+            // src={`https://player.twitch.tv/?channel=${username}&parent=shishu-teams.herokuapp.com&muted=true`}
             height="100%"
             width="100%"
             allowfullscreen={true} //Allows us to go fullScreen

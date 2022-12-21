@@ -36,8 +36,8 @@ const videoConstraints = {
   height: window.innerHeight / 2,
   width: window.innerWidth / 2,
 };
-// const socket = io("http://localhost:5000");
-const socket = io("https://shishu-teams.herokuapp.com");
+const socket = io("http://localhost:5001");
+// const socket = io("https://shishu-teams.herokuapp.com");
 
 const Room = (props) => {
   const [peers, setPeers] = useState([]); //This is for setting the people in group chat
