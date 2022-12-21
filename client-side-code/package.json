@@ -27,7 +27,7 @@
     "react-konva": "^17.0.2-4",
     "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "5.0.1",
     "react-simple-chatbot": "^0.6.1",
     "simple-peer": "^9.11.0",
     "smooth-scroll": "^16.1.3",
